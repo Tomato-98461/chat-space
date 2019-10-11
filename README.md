@@ -30,8 +30,8 @@
 |group_id|integer|null: false, foreign_key: true|
 
 **Association**
-- belongs_to :user
-- belongs_to :group
+- belongs_to :user, through: :groups_users
+- belongs_to :group, through: :groups_messages
 
 #### groups_usersテーブル
 |Column|Type|Options|
