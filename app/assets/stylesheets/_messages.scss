@@ -1,6 +1,7 @@
 // Place all the styles related to the messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "variable";
 
 .groupsContents {
   float: left;
@@ -144,11 +145,8 @@
         position: absolute;
         top: 20px;
         left: calc(100vw - 460px);
-        width: 100px;
-        height: 50px;
         margin-left: 15px;
-        background-color: #38aef0;
-        color: #fff;
+        @include blue-btn();
       }
     }
   }

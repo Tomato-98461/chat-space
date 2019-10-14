@@ -1,0 +1,6 @@
+@mixin blue-btn($color: #fff) {
+  width: 100px;
+  height: 50px;
+  background-color: #38aef0;
+  color: $color;
+}

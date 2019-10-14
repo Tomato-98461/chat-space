@@ -36,7 +36,7 @@
   .contents__post
     .contents__post__input
     %form
-      %input{type:"text", class:"contents__post__input", placeholder:"入力", name:"message"}
+      %input{type:"text", name:"message", class:"contents__post__input", placeholder:"入力"}
       %label{for:"image-select"}
         =fa_icon 'image', class:"contents__post__input--image"
       %input{type:"file", name:"image", id:"image-select", style:"display:none;"}
