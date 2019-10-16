@@ -1,0 +1,65 @@
+# Additional translations at https://github.com/plataformatec/devise/wiki/I18n
+
+ja:
+  devise:
+    confirmations:
+      confirmed: "メールアドレスの確認が取れました。"
+      send_instructions: "アカウントの有効化について数分以内にメールでご連絡します。"
+      send_paranoid_instructions: "あなたのメールアドレスが登録済みの場合、本人確認用のメールが数分以内に送信されます。"
+    failure:
+      already_authenticated: "既にログインされています。"
+      inactive: "アカウントの有効化が行われていません。"
+      invalid: "%{authentication_keys} 又はパスワードが無効です。"
+      locked: "アカウントはロックされています。"
+      last_attempt: "アカウントがロックされる前にもう1回試行されます。"
+      not_found_in_database: "%{authentication_keys} 又はパスワードが無効です。"
+      timeout: "セッションタイムアウト.再ログインしてください"
+      unauthenticated: "ログイン、又は新規登録する必要があります。"
+      unconfirmed: "手続きを行うにはメールアドレスの確認が必要です。"
+    mailer:
+      confirmation_instructions:
+        subject: "手順を確認"
+      reset_password_instructions:
+        subject: "パスワードリセットの手順"
+      unlock_instructions:
+        subject: "ロック解除の手順"
+      email_changed:
+        subject: "メールアドレス変更しました"
+      password_change:
+        subject: "パスワード変更しました"
+    omniauth_callbacks:
+      failure: "%{kind} からユーザー認証できませんでした。 \"%{reason}\"."
+      success: "%{kind} からのユーザー認証が成功しました。"
+    passwords:
+      no_token: "このページにはアクセスできません。パスワード再設定メールのリンクからアクセスされた場合には、URL をご確認ください。"
+      send_instructions: "パスワードの再設定について数分以内にメールでご連絡いたします。"
+      send_paranoid_instructions: "あなたのメールアドレスが登録済みの場合、パスワード再設定用のメールが数分以内に送信されます。"
+      updated: "パスワード変更完了！ ログインしました。"
+      updated_not_active: "パスワード変更完了！"
+    registrations:
+      destroyed: "アカウントは取り消されました。"
+      signed_up: "登録完了！"
+      signed_up_but_inactive: "ログインするためには、アカウントを有効化してください。"
+      signed_up_but_locked: "アカウントが凍結されているためログインできません。"
+      signed_up_but_unconfirmed: "本人確認用のメールを送信しました。メール内のリンクからアカウントを有効化させてください。"
+      update_needs_confirmation: "アカウント情報を変更しました。変更されたメールアドレスの本人確認のため、本人確認用メールより確認処理をおこなってください。"
+      updated: "アカウントの更新完了！"
+      updated_but_not_signed_in: "アカウント更新完了！再度ログインする必要があります。"
+    sessions:
+      signed_in: "ログイン完了！"
+      signed_out: "ログアウト完了"
+      already_signed_out: "ログアウト完了!"
+    unlocks:
+      send_instructions: "ロック解除メールが数分以内に届きます。"
+      send_paranoid_instructions: "アカウントがある場合にはロック解除メールが数分以内に届きます。"
+      unlocked: "ロック解除完了！再度ログインしてください。"
+  errors:
+    messages:
+      already_confirmed: "すでに確認されております。ログインしてください。"
+      confirmation_period_expired: "の期限が切れました。%{period} までに確認する必要があります。 新しくリクエストしてください。"
+      expired: "有効期限が切れております、最初からやり直してください。"
+      not_found: "見つかりません。"
+      not_locked: "ロックされていません。"
+      not_saved:
+        one: "エラーが発生したため %{resource} は保存されませんでした:"
+        other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした:"
