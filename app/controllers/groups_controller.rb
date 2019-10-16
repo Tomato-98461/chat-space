@@ -19,10 +19,17 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @group = Group.find(:id)
+    @group = Group.find(params[:id])
   end
 
   def update
+    @group = Group.find(params[:id])
+    @group.update(group_params)
+    if @group.save
+      redirect_to root_path
+    else
+      render 'new'
+    end
   end
 
   private
