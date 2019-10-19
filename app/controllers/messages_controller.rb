@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
 
   def create
     current_user.messages.create(message_params)
-    redirect_to to: 'index'
+    redirect_to group_messages_path
   end
 
   private

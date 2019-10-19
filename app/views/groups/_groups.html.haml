@@ -13,5 +13,4 @@
         =link_to "/groups/#{group[:id]}/messages", class: "groups__list--title" do
           =group.name
         =link_to "/groups/#{group[:id]}/messages", class: "groups__list--top" do
-          -group.messages.each.with_index do |message,i|
-            = message.message if i == (group.messages.length-1)
+          = group.messages.pluck(:message).last.nil?  ?  "まだメッセージがありません。"  :  "#{group.messages.pluck(:message).last}"
