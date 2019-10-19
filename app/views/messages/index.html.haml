@@ -1,0 +1,31 @@
+= render 'groups/groups'
+.contents
+  .contents__header
+    .contents__header__title
+      = @group.name
+    .contents__header__member
+      Member : 
+      -@group.users.each do |user|
+        = user.name
+    .contents__header__edit
+      =link_to "/groups/#{@group.id}/edit", class:"contents__header__edit--link" do
+        Edit
+  .contents__messages
+    -@messages.each do |message|
+      .contents__messages__box
+        .contents__messages__box__user
+          =message.user.name
+        .contents__messages__box__date
+          =message.created_at
+        .contents__messages__box__text
+          =message.message
+        .contents__messages__box__image
+          =image_tag message.image
+  .contents__post
+    .contents__post__input
+    =form_for (@message), url: group_messages_path do |f|
+      =f.text_field :message, class:"contents__post__input", placeholder:"入力"
+      %label{name:"image", for:"image-select"}
+        =fa_icon 'image', class:"contents__post__input--image"
+      =f.file_field :image, id:"image-select", style:"display:none;"
+      =f.submit "投稿", class:"contents__post__input--submit"
