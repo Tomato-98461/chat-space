@@ -1,13 +1,19 @@
 class MessagesController < ApplicationController
   def index
-    @group = current_user.groups.find(params[:group_id])
+    @group = Group.find(params[:group_id])
     @messages = Message.where(group_id: params[:group_id])
     @message = Message.new
   end
 
   def create
-    current_user.messages.create(message_params)
-    redirect_to group_messages_path
+    @message = current_user.messages.new(message_params)
+    if @message.save
+      redirect_to group_messages_path, notice: '送信完了'
+    else
+      @messages = Message.where(group_id: params[:group_id])
+      flash[:alert] = 'メッセージを入力してください。'
+      redirect_to group_messages_path
+    end
   end
 
   private
