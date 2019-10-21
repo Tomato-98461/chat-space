@@ -10,7 +10,10 @@
   .groups
     -current_user.groups.each do |group|
       .groups__list
-        =link_to "/groups/#{group[:id]}/messages", class: "groups__list--title" do
+        =link_to group_messages_path(group[:id]), class: "groups__list--title", data: {"turbolinks" => false} do
           =group.name
-        =link_to "/groups/#{group[:id]}/messages", class: "groups__list--top" do
-          = group.messages.pluck(:message).last.nil?  ?  "まだメッセージがありません。"  :  "#{group.messages.pluck(:message).last}"
+        =link_to group_messages_path(group[:id]), class: "groups__list--top", data: {"turbolinks" => false} do
+          - if group.messages.pluck(:message).last == "" && group.messages.pluck(:image).last != nil
+            = "画像が投稿されています。"
+          - else
+            = group.messages.pluck(:message).last.nil?  ?  "まだメッセージがありません。"  :  "#{group.messages.pluck(:message).last}"

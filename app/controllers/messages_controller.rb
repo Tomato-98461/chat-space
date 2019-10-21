@@ -12,10 +12,9 @@ class MessagesController < ApplicationController
         format.html { redirect_to group_messages_path(params[:group_id])  }
         format.json
       end
-      # redirect_to group_messages_path, notice: '送信完了'
     else
       @messages = Message.where(group_id: params[:group_id])
-      flash[:alert] = 'メッセージを入力してください。'
+      flash[:alert] = 'メッセージ投稿に失敗しました。'
       redirect_to group_messages_path
     end
   end
