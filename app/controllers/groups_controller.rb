@@ -6,7 +6,7 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @users = User.all
+    @users = User.where('name LIKE(?)', "%#{params[:keyword]}%")
   end
 
   def create
