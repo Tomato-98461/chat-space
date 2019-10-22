@@ -36,14 +36,13 @@ $(function(){
       var html = buildMessage(message);
       $('.contents__messages').append(html);
       $('html').animate({scrollTop: $('.contents__messages')[0].scrollHeight},"fast");
-      $('.contents__post__input').val("");
+      $('.new_message')[0].reset();
     })
     .fail(function(){
       alert("メッセージの投稿に失敗しました。")
     })
     .always(function(){
       $('.contents__post__input--submit').removeAttr("disabled");
-      $('#image-select').val("");
     });
   })
 })
