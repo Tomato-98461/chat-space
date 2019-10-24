@@ -3,7 +3,7 @@
     .userInfo__user
       =current_user.name
     .userInfo__btn
-      =link_to "/groups/new", class: "userInfo__user userInfo__btn--newGroup" do
+      =link_to "/groups/new", class: "userInfo__user userInfo__btn--newGroup", data: {"turbolinks": false} do
         =fa_icon 'edit', class: "userInfo__btn--icon"
       =link_to edit_user_path(current_user), class: "userInfo__user userInfo__btn--edit" do
         =fa_icon 'cog', class: "userInfo__btn--icon"

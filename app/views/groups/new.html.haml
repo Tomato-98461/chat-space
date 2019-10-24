@@ -24,10 +24,10 @@
         %label.chat-group-form__label{:for => "chat_group_チャットメンバー"} チャットメンバー
       .chat-group-form__field--right
         .chat-group-user
-          %input{name: current_user.name, type: 'hidden', value: current_user.id}
+          %input{name:'group[user_ids][]', type: 'hidden', value: current_user.id}
           .chat-group-user__name
             =current_user.name
-          .user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn
+          .user-search-remove.chat-group-user__btn.chat-group-user__btn--remove
             削除
         #user-select-list
     .chat-group-form__field

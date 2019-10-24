@@ -97,4 +97,14 @@ $(function(){
       alert("ユーザー検索に失敗しました");
     })
   })
+
+  $("#user-search-result").on("click", '.chat-group-user__btn--add', function() {
+    let id = $(this).attr('data-user-id');
+    let name = $(this).siblings('.chat-group-user__name').text();
+    addGroupUser(name, id);
+    $(this).parent().remove();
+  })
+  $(".chat-group-user").on("click", '.js-remove-btn', function() {
+    $(this).parent().remove();
+  })
 });
