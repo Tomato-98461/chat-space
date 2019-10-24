@@ -104,7 +104,7 @@ $(function(){
     addGroupUser(name, id);
     $(this).parent().remove();
   })
-  $(".chat-group-user").on("click", '.js-remove-btn', function() {
+  $("#user-select-list").on("click", '.js-remove-btn', function() {
     $(this).parent().remove();
   })
 });
