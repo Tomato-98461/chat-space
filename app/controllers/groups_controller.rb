@@ -6,13 +6,13 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @users = User.all
+    @users = User.where('name LIKE(?)', "%#{params[:keyword]}%").where.not(id: current_user.id)
   end
 
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to root_path
+      redirect_to group_messages_path(@group.id)
     else
       render 'new'
     end
@@ -26,7 +26,7 @@ class GroupsController < ApplicationController
     @group = Group.find(params[:id])
     @group.update(group_params)
     if @group.save
-      redirect_to root_path
+      redirect_to group_messages_path(@group)
     else
       render 'new'
     end
