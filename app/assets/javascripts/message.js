@@ -126,7 +126,7 @@ $(function(){
         });
       })
       .fail(function() {
-        console.log('自動更新が行われませんでした。');
+        alert('自動更新が行われませんでした。');
       });
     }
   };
