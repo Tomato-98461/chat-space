@@ -6,9 +6,9 @@ $(function(){
                 <img src="${message.image.url}">
               </div>`
     };
-    let html = `<div class="contents__messages__box">
+    let html = `<div class="contents__messages__box" data-id="${message.id}">
                   <div class="contents__messages__box__user">
-                    ${message.user}
+                    ${message.user_name}
                   </div>
                   <div class="contents__messages__box__date">
                     ${message.created_at}
@@ -49,8 +49,8 @@ $(function(){
   function  appendUser(user){
     let html = `
               <div class="chat-group-user clearfix">
-                <p class="chat-group-user__name">${user.name}</p>
-                <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">追加</div>
+                <p class="chat-group-user__name">${user.user_name}</p>
+                <div class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.user_name}">追加</div>
               </div>
               `
     $("#user-search-result").append(html);
@@ -67,7 +67,7 @@ $(function(){
     let html = `
             <div class='chat-group-user'>
               <input name='group[user_ids][]' type='hidden' value='${user_id}'>
-              <p class='chat-group-user__name'>${name}</p>
+              <div class='chat-group-user__name'>${name}</div>
               <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
             </div>
             `
@@ -107,4 +107,29 @@ $(function(){
   $("#user-select-list").on("click", '.js-remove-btn', function() {
     $(this).parent().remove();
   })
+
+  let reloadMessages = function() {
+    let last_message_id = $(".contents__messages__box:last").data('id');
+    if ($(".contents__messages").length !== 0) {
+      $.ajax({
+        url: 'api/messages',
+        type: 'get',
+        dataType: 'json',
+        data: {id: last_message_id}
+      })
+      .done(function(messages){
+        let insertHTML = "";
+        $.each(messages, function(i,message) {
+          insertHTML = buildMessage(message);
+          $('.contents__messages').append(insertHTML);
+          $('html').animate({ scrollTop: $('.contents__messages')[0].scrollHeight },"fast");
+        });
+      })
+      .fail(function() {
+        console.log('自動更新が行われませんでした。');
+      });
+    }
+  };
+
+  setInterval(reloadMessages, 5000);
 });

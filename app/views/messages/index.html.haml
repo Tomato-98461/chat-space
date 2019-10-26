@@ -12,7 +12,7 @@
         Edit
   .contents__messages
     -@messages.each do |message|
-      .contents__messages__box
+      .contents__messages__box{'data-id': message.id}
         .contents__messages__box__user
           =message.user.name
         .contents__messages__box__date
