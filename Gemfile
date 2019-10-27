@@ -80,6 +80,7 @@ gem 'haml-rails'
 gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'fog-aws'
 
 gem 'rails-i18n'
 gem 'devise-i18n'
