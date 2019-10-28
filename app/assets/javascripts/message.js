@@ -74,12 +74,17 @@ $(function(){
     $('#user-select-list').append(html)
   };
 
+  
   $("#user-search-field").on("keyup", function() {
+    let select_ids = [];
     let input = $("#user-search-field").val();
+    $('input[name="group[user_ids][]"]').each(function(){
+      select_ids.push($(this).prop('value'));
+    });
     $.ajax({
       type: 'GET',
       url: '/users',
-      data: { keyword: input},
+      data: { keyword: input, user_ids: select_ids},
       dataType: 'json'
     })
     .done(function(users) {

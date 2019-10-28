@@ -6,7 +6,7 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @users = User.where('name LIKE(?)', "%#{params[:keyword]}%").where.not(id: current_user.id)
+    @users = User.where('name LIKE(?)', "%#{params[:keyword]}%").where.not(id: "#{params[:users]}")
   end
 
   def create
