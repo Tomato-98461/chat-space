@@ -1,8 +1,13 @@
 class MessagesController < ApplicationController
   def index
     @group = Group.find(params[:group_id])
-    @messages = Message.where(group_id: params[:group_id])
-    @message = Message.new
+    if @group.users.ids.include?(current_user.id)
+      @messages = Message.where(group_id: @group.id)
+      @message = Message.new
+    else
+      flash[:alert] = 'グループに参加しておりません。'
+      redirect_to root_path
+    end
   end
 
   def create
