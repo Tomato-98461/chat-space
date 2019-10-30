@@ -2,9 +2,8 @@ $(function(){
   function buildMessage(message) {
     let image = "";
     if(message.image.url != null){
-      image = `<div class="contents__messages__box__image">
-                <img src="${message.image.url}">
-              </div>`
+      image = `<img class="contents__messages__box__image"
+                      src="${message.image.url}">`
     };
     let html = `<div class="contents__messages__box" data-id="${message.id}">
                   <div class="contents__messages__box__user">
@@ -36,6 +35,7 @@ $(function(){
       var html = buildMessage(message);
       $('.contents__messages').append(html);
       $('html').animate({scrollTop: $('.contents__messages')[0].scrollHeight},"fast");
+      $(".contents__messages__box:last").css({'animation-name': 'fadein',  'animation-duration': '2s'});
       $('.new_message')[0].reset();
     })
     .fail(function(){

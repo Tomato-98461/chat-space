@@ -53,6 +53,17 @@
   }
 }
 
+@keyframes fadein {
+  from {
+      opacity: 0;
+      transform: translateY(40px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}  
+
 .contents {
   max-width: calc(100vw - 300px);
   padding-left: 300px;
@@ -90,7 +101,7 @@
   &__messages {
     padding:46px 40px 40px 40px;
     background-color: #fafafa;
-    height: calc(100vh - 270px);
+    height: 100%;
     &__box {
       padding-bottom: 40px;
       &__user {

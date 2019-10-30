@@ -20,8 +20,7 @@
         .contents__messages__box__text
           =message.message
         -if message.image.length != 0
-          .contents__messages__box__image
-            =image_tag message.image
+          =image_tag message.image, class: "contents__messages__box__image"
   .contents__post
     .contents__post__input
     =form_for (@message), url: group_messages_path do |f|
