@@ -127,6 +127,7 @@ $(function(){
         $.each(messages, function(i,message) {
           insertHTML = buildMessage(message);
           $('.contents__messages').append(insertHTML);
+          $(".contents__messages__box:last").css({'animation-name': 'fadein',  'animation-duration': '2s'});
           $('html').animate({ scrollTop: $('.contents__messages')[0].scrollHeight },"fast");
         });
       })
